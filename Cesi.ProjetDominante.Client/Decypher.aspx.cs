@@ -1,17 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Cesi.ProjetDominante.Client
 {
+
     public partial class Decypher : System.Web.UI.Page
     {
         protected void UploadButton_Click(object sender, EventArgs e)
         {
             // Specify the path on the server to
             // save the uploaded file to.
-            String savePath = @"c:\temp\uploads\";
+            string saveLocation = @"c:\temp\uploads\";
 
             // Before attempting to perform operations
             // on the file, verify that the FileUpload 
@@ -26,6 +29,8 @@ namespace Cesi.ProjetDominante.Client
                 FileUpload5
             };
 
+            var filesToDecrypt = new Dictionary<string, string>();
+
             var uploadedFiles = "";
 
             foreach (var fileUpload in fileUploades)
@@ -37,7 +42,7 @@ namespace Cesi.ProjetDominante.Client
                     String fileName = fileUpload.FileName;
 
                     // Append the name of the file to upload to the path.
-                    savePath += fileName;
+                    var savePath = saveLocation + fileName;
 
                     // Call the SaveAs method to save the 
                     // uploaded file to the specified path.
@@ -50,25 +55,28 @@ namespace Cesi.ProjetDominante.Client
 
                     uploadedFiles = uploadedFiles + fileName + " ";
 
+                    string fileContent = File.ReadAllText(savePath);
+
+                    filesToDecrypt.Add(fileName, fileContent);
+
                 }
             }
 
             if (uploadedFiles == "")
             {
-                UploadStatusLabel.Text = "You did not specify a file to upload.";
+                UploadStatusLabel.Text = "You did not specify a file to decrytp ";
+
             }
             else
             {
                 // Notify the user of the name of the file
                 // was saved under.
-                UploadStatusLabel.Text = "Your file(s) was saved as " + uploadedFiles;
+                UploadStatusLabel.Text = "We start de decrypt your file(s): " + uploadedFiles;
             }
-                
-        }
 
-        protected void tempSave()
-        {
+
 
         }
+
     }
 }
