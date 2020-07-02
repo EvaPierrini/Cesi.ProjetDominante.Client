@@ -18,10 +18,17 @@ namespace Cesi.ProjetDominante.Client
 
             string username = UserName.Text;
             string password = Password.Text;
+          
 
-            button1.Text = button1.Text = APICall().Result;
+            if (APICall().Result == "true")
+            {
+                Response.Redirect("Decypher.aspx", true);
+            }
+            else
+            {
+                button1.Text = button1.Text = APICall().Result;
+            }
 
-      
         }
 
         public async Task<string> APICall()

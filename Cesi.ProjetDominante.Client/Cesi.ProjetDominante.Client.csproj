@@ -37,6 +37,7 @@
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
+    <Content Include="Decypher.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -47,6 +48,12 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Decypher.aspx.cs">
+      <DependentUpon>Decypher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Decypher.aspx.designer.cs">
+      <DependentUpon>Decypher.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
