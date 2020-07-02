@@ -2,11 +2,22 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-	<title>Default</title>
+	<title>Login</title>
 </head>
 <body>
 	<form id="form1" runat="server">
-		<asp:Button id="button1" runat="server" Text="Click me!" OnClick="button1Clicked" />
+        <h1> CESI Decypher </h1>
+            <h2> Login page</h2>
+            <p> 
+                Username:
+                <asp:TextBox id = "UserName" runat="server"></asp:TextBox>
+            </p>
+            <p>
+                Password:
+                <asp:TextBox id = "Password" runat="server" TextMode="Password"></asp:TextBox>
+            </p>    
+            
+            <asp:Button id="button1" runat="server" Text="Login" OnClick="button1Clicked" />
 	</form>
 </body>
 </html>
